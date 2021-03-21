@@ -29,10 +29,12 @@ test("form shows success message on submit with form details", () => {
     const checkoutBtn = screen.getByRole('button');
     userEvent.click(checkoutBtn);
 
-    const successMessage = screen.getByText("You have ordered some plants! Woo-hoo!");
+    const successMessage = screen.getByTestId('successMessage');
     
-    expect(successMessage).toBeDefined();
-    expect("Pamela Isley").toBeDefined();
-    expect("181 Blossom Ave").toBeDefined();
-    expect("Gotham, DC 61966").toBeDefined();
+    // expect(successMessage).toHaveTextContent("Batman")
+    expect(successMessage).toHaveTextContent("You have ordered some plants! Woo-hoo!");
+    expect(successMessage).toHaveTextContent("Pamela Isley");
+    expect(successMessage).toHaveTextContent("181 Blossom Ave");
+    expect(successMessage).toHaveTextContent("Gotham, DC 61966");
+
 });
